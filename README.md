@@ -1,11 +1,14 @@
 # ✨QRMan✨
 
-Dynamic QR code, logo QR code generate, tracking QR code scan, hitmap dashboard and admin panel using [Laravel 8](https://laravel.com) framework, [Vuexy](https://themeforest.net/item/vuexy-vuejs-html-laravel-admin-dashboard-template/23328599) template, [endroid/qr-code](https://github.com/endroid/qr-code) library
+Dynamic QR code, logo QR code generate, tracking QR code scan, hitmap dashboard and admin panel using [Laravel 9](https://laravel.com) framework, [Vuexy](https://themeforest.net/item/vuexy-vuejs-html-laravel-admin-dashboard-template/23328599) template, [endroid/qr-code](https://github.com/endroid/qr-code) library and [python](https://python.org).
 
 This is based from a fork of https://github.com/devdreamsolution/laravel7-qrcode-campaign. We re trying to fix some problems with the webapp, add docker and fix the documentation since it can be a really useful tool internally and for the community. The tool has been already updated and improved substantially including:
 - More recent versions of Laravel and PHP
 - Docker support
 - Fixed Logo QR Generation
+- Possibility to change theme
+- Possibility to change registration button
+- Fixed some gui problems
 
 
 ## Screenshots
@@ -32,8 +35,11 @@ nano .env
 cp .env.laravel.example .env.laravel
 nano .env.laravel
 ```
-Please note than when you run the project the first time you should set variable FIRST_TIME to TRUE. It will be then automatically set to false.
-Morehower the variable APP_ENV should be set to *production* when you want to enforce HTTPS. Otherwise, leave *local* when testing without https.
+#### Notes regarding env files
+- When you run the project the first time you should set variable **FIRST_TIME** to *TRUE*. It will be then automatically set to false.
+- The variable **APP_ENV** should be set to *production* when you want to enforce HTTPS. Otherwise, leave *local* when testing without https.
+- The variable **APP_DEBUG** should be set to *FALSE* unless you are actually debugging
+- The variable **APP_REGISTRATION** can be set to to enable or disable the possibility to register new users from the login page.
 
 Then run with docker-compose:
 
