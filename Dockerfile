@@ -13,7 +13,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo ap
 RUN sudo rm -R /app && sudo mkdir /app && sudo chown -R bitnami:bitnami /app
 WORKDIR /app
 
-RUN git clone -b dev https://github.com/SemioDigital/qrman .
+RUN git clone -b master https://github.com/SemioDigital/qrman .
 COPY ./entrypoint.sh ./entrypoint.sh
 
 USER bitnami
@@ -26,5 +26,5 @@ WORKDIR /app
 # RUN composer update
 RUN sudo composer self-update --2 && composer install
 
-RUN npm i && npm run dev
+RUN npm i && npm run prod
 ENTRYPOINT [ "./entrypoint.sh" ]
