@@ -18,16 +18,16 @@ services:
         constraints:
           - node.hostname == itmidkw01
 
-#  redis:
-#    image: redis:alpine
-#    networks:
-#      - qrcode-network
-#    deploy:
-#      mode: replicated
-#      replicas: 1
-#      placement:
-#        constraints:
-#          - node.role == worker
+  redis:
+    image: redis:alpine
+    networks:
+      - qrcode-network
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == itmidkw01
 
   app:
     image: ghcr.io/semiodigital/qrman:latest
