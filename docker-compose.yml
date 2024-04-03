@@ -69,7 +69,7 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - "8090:80"
+      - "8091:80"
     environment:
       PMA_HOST: qr_db
       MYSQL_ROOT_PASSWORD: changeme
