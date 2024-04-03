@@ -50,8 +50,8 @@ services:
     image: ghcr.io/semiodigital/qrman:latest
     volumes:
       - qrman_config:/app/config
-      - qrman_env/.env:/app/.env.sys
-      - qrman_env/.env.laravel:/app/.env
+      - /var/lib/docker/volumes/qrenv/_data/.env:/app/.env.sys
+      - /var/lib/docker/volumes/qrenv/_data/.env.laravel:/app/.env
       - qrman_storage:/app/storage
     environment:
       ADMIN_NAME: Alessandro
@@ -81,7 +81,7 @@ services:
       replicas: 1
       placement:
         constraints:
-          - node.role == worker
+          - node.hostname == itmidkw01
 
 networks:
   qrcode-network:
