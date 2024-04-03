@@ -55,7 +55,7 @@ services:
       - /var/lib/docker/volumes/qrenv/_data/.env.laravel:/app/.env
       - qrman_storage:/app/storage
     env_file:
-      - /app/.env.sys
+      - .env
     networks:
       - proxy
       - qrcode-network
