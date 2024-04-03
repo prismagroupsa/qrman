@@ -50,8 +50,8 @@ services:
     image: ghcr.io/semiodigital/qrman:latest
     volumes:
       - qrman_config:/app/config
-      - ./.env:/app/.env.sys
-      - ./.env.laravel:/app/.env
+      - qrman_env/.env:/app/.env.sys
+      - qrman_env/.env.laravel:/app/.env
       - qrman_storage:/app/storage
     environment:
       ADMIN_NAME: Alessandro
