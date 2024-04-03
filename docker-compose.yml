@@ -6,9 +6,27 @@ services:
     restart: unless-stopped
     volumes:
       - qrman_db:/var/lib/mysql
-      - /var/lib/docker/volumes/qrenv/_data/.env:.env
-    env_file:
-      - .env
+      #- /var/lib/docker/volumes/qrenv/_data/.env:.env
+    environment:
+      ADMIN_NAME: Alessandro
+      ADMIN_SURNAME: Caviglione
+      ADMIN_EMAIL: ac@prisma-group.ch
+      ADMIN_PASSWORD: Capoitaly80!
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_PASSWORD: changeme
+      MYSQL_DATABASE: semioqr
+      MYSQL_HOST: db
+      MARIADB_AUTO_UPGRADE: 1
+      MARIADB_DISABLE_UPGRADE_BACKUP: 1
+      BROADCAST_DRIVER: log
+      #CACHE_DRIVER: redis
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: file
+      SESSION_LIFETIME: 120
+      REDIS_HOST: qr_redis
+      REDIS_PASSWORD: null
+      REDIS_PORT: 6379
+      FIRST_RUN: 1
     networks:
       - qrcode-network
     deploy:
@@ -37,7 +55,7 @@ services:
       - /var/lib/docker/volumes/qrenv/_data/.env.laravel:/app/.env
       - qrman_storage:/app/storage
     env_file:
-      - .env
+      - /app/.env.sys
     networks:
       - proxy
       - qrcode-network
