@@ -6,8 +6,9 @@ services:
     restart: unless-stopped
     volumes:
       - qrman_db:/var/lib/mysql
+      - /var/lib/docker/volumes/qrenv/_data/.env:.env
     env_file:
-      - /var/lib/docker/volumes/qrenv/_data/.env
+      - .env
     networks:
       - qrcode-network
     deploy:
